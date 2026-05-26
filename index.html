@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damián Ezequiel Fernández | Portfolio Desarrollador</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio profesional de Damián Ezequiel Fernández, estudiante de Licenciatura en Informática en la UNLP. Desarrollador backend y de videojuegos en Java, Python y Godot.">
+  <meta name="keywords" content="Damián Ezequiel Fernández, Leiazel, Portfolio, Desarrollador, Python, Java, Godot, GDScript, UNLP, Informática, Backend, Argentina">
+  <meta name="author" content="Damián Ezequiel Fernández">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Damián Ezequiel Fernández | Portfolio Desarrollador">
+  <meta property="og:description" content="Portfolio profesional de Damián Ezequiel Fernández. Desarrollo backend y de videojuegos.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Fira+Code:wght@400;500;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Grid & Glowing Blobs -->
+  <div class="bg-grid"></div>
+  <div class="glow-blob blob-1"></div>
+  <div class="glow-blob blob-2"></div>
+  <div class="glow-blob blob-3"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="logo" id="logo">
+        <span class="logo-accent">fz_damian99</span><span class="logo-slash">~/</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inicio" class="nav-link active" id="link-inicio"><i class="fa-solid fa-terminal mr-2"></i>inicio</a></li>
+        <li><a href="#proyectos" class="nav-link" id="link-proyectos"><i class="fa-solid fa-code-branch mr-2"></i>proyectos</a></li>
+        <li><a href="#habilidades" class="nav-link" id="link-habilidades"><i class="fa-solid fa-cubes mr-2"></i>habilidades</a></li>
+        <li><a href="#contacto" class="nav-link" id="link-contacto"><i class="fa-solid fa-envelope mr-2"></i>contacto</a></li>
+      </ul>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="section hero-section" id="inicio">
+    <div class="hero-container">
+      <div class="hero-info">
+        <div class="status-badge" id="status-badge">
+          <span class="status-dot"></span> Disponible para nuevos desafíos
+        </div>
+        <h1 class="hero-title" id="hero-title">
+          Hola, soy <span class="text-gradient">Damián Fernández</span>
+        </h1>
+        <h2 class="hero-subtitle" id="hero-subtitle">
+          Estudiante de Licenciatura en Informática <span class="unlp-tag">@UNLP</span>
+        </h2>
+        <p class="hero-description">
+          Apasionado por la tecnología, el desarrollo de software y la resolución de problemas. Especializado en lógica de programación, arquitectura modular y videojuegos 2D.
+        </p>
+        
+        <div class="hero-cta">
+          <a href="#contacto" class="btn btn-primary" id="btn-hero-contact">
+            <i class="fa-solid fa-paper-plane"></i> Contactarme
+          </a>
+          <a href="CV - Fernandez, Damian Ezequiel 2026.pdf" download class="btn btn-secondary" id="btn-hero-cv">
+            <i class="fa-solid fa-download"></i> Descargar CV
+          </a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://github.com/Leiazel" target="_blank" aria-label="GitHub de Damián" id="social-github"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/fz-damian99" target="_blank" aria-label="LinkedIn de Damián" id="social-linkedin"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:Fz.damian99@gmail.com" aria-label="Correo de Damián" id="social-email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      
+      <!-- Terminal Window -->
+      <div class="terminal-wrapper">
+        <div class="terminal" id="terminal">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="t-btn t-btn-close"></span>
+              <span class="t-btn t-btn-minimize"></span>
+              <span class="t-btn t-btn-maximize"></span>
+            </div>
+            <div class="terminal-title">bash - damian@pc: ~</div>
+            <div class="terminal-status">CONNECTED</div>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <!-- Simulated Boot Sequence -->
+            <div class="terminal-line"><span class="t-output font-mute">[SYSTEM] Initializing portfolio v2.6.5...</span></div>
+            <div class="terminal-line"><span class="t-output font-mute">[SYSTEM] Loading environment variables... SUCCESS</span></div>
+            <div class="terminal-line"><span class="t-output font-mute">[SYSTEM] Welcome, developer guest. Type 'help' for commands.</span></div>
+            <div class="terminal-line"><span class="t-prompt">damian@pc:~$</span> <span class="t-command">whoami</span></div>
+            <div class="terminal-line"><span class="t-output font-primary">Damián Ezequiel Fernández | Estudiante UNLP & Programador</span></div>
+            <div class="terminal-line"><span class="t-prompt">damian@pc:~$</span> <span class="t-command">cat skills.json</span></div>
+            <div class="terminal-line">
+              <span class="t-output font-secondary">
+                {<br>
+                &nbsp;&nbsp;"languages": ["Java", "Python", "GDScript", "SQL", "Pascal"],<br>
+                &nbsp;&nbsp;"focus": ["Backend", "OOP", "2D Videogames"],<br>
+                &nbsp;&nbsp;"location": "Ensenada, Buenos Aires, Argentina"<br>
+                }
+              </span>
+            </div>
+            <div class="terminal-line active-line">
+              <span class="t-prompt">damian@pc:~$</span>
+              <input type="text" class="terminal-input" id="terminal-input" autofocus autocomplete="off" spellcheck="false" aria-label="Entrada de la terminal">
+              <span class="terminal-cursor"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects-section" id="proyectos">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="number-prefix">01.</span>Proyectos Destacados</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="projects-grid">
+        
+        <!-- Project 1: Mini-Football -->
+        <article class="project-card" id="project-mini-football">
+          <!-- GALERÍA MULTIMEDIA: Para agregar imágenes y videos propios:
+               1. Crea una subcarpeta en tu directorio: assets/projects/mini_football/
+               2. Guarda tus imágenes ahí (ej: captura1.png, captura2.png) y videos (ej: demo.mp4)
+               3. Modifica o descomenta los bloques de abajo para vincular tus nuevos archivos. -->
+          <div class="project-gallery-wrapper">
+            <div class="project-gallery" data-project="mini-football">
+              <div class="gallery-track">
+                <!-- Slide 1 (Imagen principal inicial) -->
+                 
+                <div class="gallery-slide active">
+                  <img src="assets/mini_football/1.png" alt="Captura de Mini-Football" class="project-media">
+                </div>
+                
+                <!-- Slide 2 (Ejemplo imagen comentada - quita los comentarios  y -->
+                
+                <div class="gallery-slide">
+                  <img src="assets/mini_football/2.png" alt="Mini-Football Captura 2" class="project-media">
+                </div>
+                <div class="gallery-slide">
+                  <img src="assets/mini_football/3.png" alt="Mini-Football Captura 2" class="project-media">
+                </div>
+                <div class="gallery-slide">
+                  <img src="assets/mini_football/4.png" alt="Mini-Football Captura 2" class="project-media">
+                </div>
+                <div class="gallery-slide">
+                  <img src="assets/mini_football/5.png" alt="Mini-Football Captura 2" class="project-media">
+                </div>
+                <div class="gallery-slide">
+                  <img src="assets/mini_football/6.png" alt="Mini-Football Captura 2" class="project-media">
+                </div>
+                <div class="gallery-slide">
+                  <img src="assets/mini_football/7.png" alt="Mini-Football Captura 2" class="project-media">
+                </div>
+                
+                <!-- Slide 3 (Ejemplo video comentado) -->
+                <!--
+                <div class="gallery-slide">
+                  <video class="project-media" controls poster="assets/mini_football.png">
+                    <source src="assets/projects/mini_football/demo.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                  </video>
+                </div>
+                -->
+              </div>
+              
+              <!-- Controles de la Galería -->
+              <button type="button" class="gallery-arrow prev-arrow" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+              <button type="button" class="gallery-arrow next-arrow" aria-label="Siguiente imagen"><i class="fa-solid fa-chevron-right"></i></button>
+              
+              <!-- Indicadores (se generan dinámicamente o se controlan en JS) -->
+              <div class="gallery-indicators">
+                <span class="indicator active" data-index="0"></span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Videojuego 2D</span>
+            <div class="project-title-row">
+              <h3 class="project-card-title">Mini-Football</h3>
+              <a href="https://github.com/Leiazel/Mini-Football" target="_blank" class="project-title-github" aria-label="Ver código en GitHub de Mini-Football"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="project-description">
+              Videojuego completo de fútbol 2D desarrollado con Godot. Implementa físicas avanzadas aplicadas al movimiento del balón, comportamiento inteligente de juego y sistema de control fluido de los jugadores en un entorno modular y escalable.
+            </p>
+            <div class="project-tech-list">
+              <span class="tech-tag"><i class="fa-solid fa-gamepad"></i> Godot Engine</span>
+              <span class="tech-tag"><i class="fa-solid fa-code"></i> GDScript</span>
+              <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+              <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+              <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Leiazel/Mini-Football" target="_blank" class="project-link-text"><i class="fa-brands fa-github"></i> Código Fuente <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Bob el Alquilador -->
+        <article class="project-card" id="project-bob-alquilador">
+          <!-- GALERÍA MULTIMEDIA: Para agregar imágenes y videos propios:
+               1. Crea una subcarpeta en tu directorio: assets/projects/bob_alquilador/
+               2. Guarda tus imágenes ahí (ej: captura1.png) y videos (ej: demo.mp4)
+               3. Modifica o descomenta los bloques de abajo para vincular tus nuevos archivos. -->
+          <div class="project-gallery-wrapper">
+            <div class="project-gallery" data-project="bob-alquilador">
+              <div class="gallery-track">
+                <!-- Slide 1 (Imagen principal inicial) -->
+                <div class="gallery-slide active">
+                  <img src="assets/bob_alquilador.png" alt="Captura de Bob el Alquilador" class="project-media">
+                </div>
+                <!-- Slide 2 (Ejemplo imagen comentada) -->
+                <!--
+                <div class="gallery-slide">
+                  <img src="assets/projects/bob_alquilador/captura2.png" alt="Bob el Alquilador Captura 2" class="project-media">
+                </div>
+                -->
+                <!-- Slide 3 (Ejemplo video comentado) -->
+                <!--
+                <div class="gallery-slide">
+                  <video class="project-media" controls poster="assets/bob_alquilador.png">
+                    <source src="assets/projects/bob_alquilador/demo.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video.
+                  </video>
+                </div>
+                -->
+              </div>
+              
+              <!-- Controles de la Galería -->
+              <button type="button" class="gallery-arrow prev-arrow" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+              <button type="button" class="gallery-arrow next-arrow" aria-label="Siguiente imagen"><i class="fa-solid fa-chevron-right"></i></button>
+              
+              <div class="gallery-indicators">
+                <span class="indicator active" data-index="0"></span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Desarrollo Académico Backend</span>
+            <div class="project-title-row">
+              <h3 class="project-card-title">Bob el Alquilador</h3>
+              <a href="https://github.com/juani48/IS2-BEA" target="_blank" class="project-title-github" aria-label="Ver código en GitHub de Bob el Alquilador"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="project-description">
+              Componentes backend para un sistema académico de alquileres aplicando principios de Programación Orientada a Objetos (OOP). Implementa endpoints RESTful con control de peticiones HTTP y lógica de negocio distribuida.
+            </p>
+            <div class="project-tech-list">
+              <span class="tech-tag"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="tech-tag"><i class="fa-solid fa-gears"></i> REST APIs</span>
+              <span class="tech-tag"><i class="fa-solid fa-database"></i> SQLite</span>
+              <span class="tech-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="tech-tag"><i class="fa-solid fa-users"></i> Scrum</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/juani48/IS2-BEA" target="_blank" class="project-link-text"><i class="fa-brands fa-github"></i> Código Fuente <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills-section" id="habilidades">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="number-prefix">02.</span>Habilidades</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="skills-wrapper">
+        <div class="skills-console">
+          <div class="console-tab-header">
+            <div class="tab active-tab"><i class="fa-solid fa-microchip"></i> tech_diagnostics.sh</div>
+          </div>
+          <div class="console-body">
+            <div class="console-line"><span class="c-accent"># Inicializando análisis de competencias...</span></div>
+            
+            <div class="skills-category-group">
+              <div class="category-title">[LENGUAJES DE PROGRAMACIÓN]</div>
+              <div class="skills-grid-icons">
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-brands fa-java text-magenta"></i></div>
+                  <span class="skill-label">Java</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-brands fa-python text-cyan"></i></div>
+                  <span class="skill-label">Python</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-gamepad text-green"></i></div>
+                  <span class="skill-label">GDScript</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-brands fa-html5 text-yellow"></i></div>
+                  <span class="skill-label">HTML5</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-brands fa-css3-alt text-cyan"></i></div>
+                  <span class="skill-label">CSS3</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-database text-green"></i></div>
+                  <span class="skill-label">SQL</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-code text-magenta"></i></div>
+                  <span class="skill-label">Pascal</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-microchip text-yellow"></i></div>
+                  <span class="skill-label">Assembly</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-category-group mt-4">
+              <div class="category-title">[ENTORNO Y METODOLOGÍAS]</div>
+              <div class="skills-grid-icons">
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-brands fa-git-alt text-magenta"></i></div>
+                  <span class="skill-label">Git</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-brands fa-github text-cyan"></i></div>
+                  <span class="skill-label">GitHub</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-gears text-green"></i></div>
+                  <span class="skill-label">APIs REST</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-users text-yellow"></i></div>
+                  <span class="skill-label">Scrum</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-cube text-magenta"></i></div>
+                  <span class="skill-label">Diseño Modular</span>
+                </div>
+                <div class="skill-icon-card">
+                  <div class="skill-icon"><i class="fa-solid fa-check-double text-green"></i></div>
+                  <span class="skill-label">Clean Code</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-category-group mt-4">
+              <div class="category-title">[HABILIDADES BLANDAS]</div>
+              <div class="soft-skills-tags">
+                <span class="soft-tag">Resolución de Problemas</span>
+                <span class="soft-tag">Trabajo en Equipo</span>
+                <span class="soft-tag">Comunicación Efectiva</span>
+                <span class="soft-tag">Adaptabilidad</span>
+                <span class="soft-tag">Organización</span>
+              </div>
+            </div>
+            
+            <div class="console-line mt-3"><span class="c-accent"># Diagnóstico: Listo para desarrollo de software estable.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="number-prefix">04.</span>Establecer Contacto</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info-panel">
+          <h3 class="contact-panel-title">¿Hablamos sobre un proyecto?</h3>
+          <p class="contact-panel-desc">
+            Mi bandeja de entrada está abierta para ofertas de trabajo, consultas académicas o de proyectos, o simplemente para charlar de desarrollo.
+          </p>
+          
+          <div class="contact-details">
+            <div class="contact-item" id="contact-mail">
+              <div class="contact-icon-box"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-item-text">
+                <span class="contact-label">Email</span>
+                <a href="mailto:Fz.damian99@gmail.com" class="contact-link">Fz.damian99@gmail.com</a>
+              </div>
+            </div>
+            
+            <div class="contact-item" id="contact-phone">
+              <div class="contact-icon-box"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-item-text">
+                <span class="contact-label">Teléfono</span>
+                <a href="tel:+542214358177" class="contact-link">+54 221 4358177</a>
+              </div>
+            </div>
+            
+            <div class="contact-item" id="contact-location">
+              <div class="contact-icon-box"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-item-text">
+                <span class="contact-label">Ubicación</span>
+                <span class="contact-link">Ensenada, Buenos Aires, Argentina</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Terminal Contact Form -->
+        <div class="contact-form-container">
+          <div class="terminal-header form-terminal-header">
+            <div class="terminal-buttons">
+              <span class="t-btn t-btn-close"></span>
+              <span class="t-btn t-btn-minimize"></span>
+              <span class="t-btn t-btn-maximize"></span>
+            </div>
+            <div class="terminal-title">contact_service.py</div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="form-line">
+              <span class="form-prompt font-mono">&gt; Nombre:</span>
+              <input type="text" id="form-name" required placeholder="Tu nombre..." autocomplete="off">
+            </div>
+            <div class="form-line">
+              <span class="form-prompt font-mono">&gt; Correo electrónico:</span>
+              <input type="email" id="form-email" required placeholder="Tu correo electrónico..." autocomplete="off">
+            </div>
+            <div class="form-line text-area-line">
+              <span class="form-prompt font-mono">&gt; Mensaje:</span>
+              <textarea id="form-message" required placeholder="Tu mensaje o propuesta..." rows="4"></textarea>
+            </div>
+            <div class="form-submit-line">
+              <button type="submit" class="btn btn-terminal font-mono" id="form-submit">
+                <i class="fa-solid fa-circle-play"></i> Enviar Mensaje
+              </button>
+            </div>
+            <div class="form-status-output font-mono" id="form-status-output"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p>&copy; 2026 - Damián Ezequiel Fernández</p>
+      </div>
+      <div class="footer-center">
+        <span class="footer-pulse font-mono">&lt;always_learning /&gt;</span>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://github.com/Leiazel" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/fz-damian99" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Visor de imagen ampliada">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar visor"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightbox-img" src="" alt="Imagen ampliada">
+    </div>
+    <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Siguiente imagen"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="lightbox-counter" id="lightbox-counter">1 / 7</div>
+  </div>
+
+  <!-- Javascript -->
+  <script src="app.js"></script>
+</body>
+</html>
