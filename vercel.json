@@ -8,6 +8,6 @@
     { "src": "assets/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/contact", "dest": "/api/contact.py" }
+    { "src": "^/api/contact/?$", "methods": ["GET", "POST"], "dest": "/api/contact.py" }
   ]
 }
