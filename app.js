@@ -234,14 +234,22 @@ Actualmente especializándome en backend (Java, Python, REST APIs) y desarrollo 
         body: JSON.stringify({ subject, body })
       });
 
-      const result = await response.json();
+      // Some server errors may return non-JSON (HTML or plain text).
+      // Read as text first and try to parse JSON safely.
+      const text = await response.text();
+      let result;
+      try {
+        result = JSON.parse(text);
+      } catch (e) {
+        result = { error: text };
+      }
 
       if (!response.ok) {
         throw new Error(result.error || 'Error al enviar el mensaje.');
       }
 
       formStatus.classList.add('success');
-      formStatus.innerHTML = `&gt; ${result.message}`;
+      formStatus.innerHTML = `&gt; ${result.message || 'Mensaje enviado.'}`;
       contactForm.reset();
     } catch (error) {
       formStatus.classList.add('error');
