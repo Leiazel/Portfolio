@@ -1,75 +1,67 @@
 import os
 import ssl
-import smtplib
 import json
+import smtplib
 from email.message import EmailMessage
-from dotenv import load_dotenv
-from flask import Flask, request as flask_request, jsonify
+from http.server import BaseHTTPRequestHandler
 
 
-app = Flask(__name__)
+class handler(BaseHTTPRequestHandler):
 
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
 
-def send_contact_email(subject, body):
-    load_dotenv()
-    password = os.getenv('PASSWORD')
-    if not password:
-        return {'error': 'PASSWORD no configurado en variables de entorno.'}, 500
-
-    email_sender = 'correos.fzdamian99@gmail.com'
-    email_receiver = 'leiazel.412@gmail.com'
-
-    em = EmailMessage()
-    em['From'] = email_sender
-    em['To'] = email_receiver
-    em['Subject'] = subject
-    em.set_content(body)
-
-    context = ssl.create_default_context()
-
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
-        smtp.login(email_sender, password)
-        smtp.send_message(em)
-
-    return {'message': 'Mensaje enviado correctamente.'}, 200
-
-
-@app.route('/', methods=['POST'])
-def contact_route():
-    if flask_request.method != 'POST':
-        return jsonify({'error': 'Method not allowed.'}), 405
-
-    data = flask_request.get_json(silent=True) or {}
-    subject = (data.get('subject') or '').strip()
-    body = (data.get('body') or '').strip()
-
-    if not subject or not body:
-        return jsonify({'error': 'Subject y body son requeridos.'}), 400
-
-    resp, status = send_contact_email(subject, body)
-    return jsonify(resp), status
-
-
-# Keep a top-level handler for Vercel's function detection
-def handler(request):
-    if getattr(request, 'method', None) != 'POST':
-        return {'error': 'Method not allowed.'}, 405
-
-    try:
-        data = request.get_json() or {}
-    except AttributeError:
+    def do_POST(self):
         try:
-            data = json.loads(request.data.decode('utf-8') or '{}')
+            content_length = int(self.headers.get('Content-Length', 0))
+            raw_body = self.rfile.read(content_length)
+            data = json.loads(raw_body.decode('utf-8')) if raw_body else {}
         except Exception:
             data = {}
-    except Exception:
-        data = {}
 
-    subject = (data.get('subject') or '').strip()
-    body = (data.get('body') or '').strip()
+        subject = (data.get('subject') or '').strip()
+        body    = (data.get('body')    or '').strip()
 
-    if not subject or not body:
-        return {'error': 'Subject y body son requeridos.'}, 400
+        if not subject or not body:
+            self._respond(400, {'error': 'Subject y body son requeridos.'})
+            return
 
-    resp, status = send_contact_email(subject, body)
-    return resp, status
+        password = os.environ.get('PASSWORD', '')
+        if not password:
+            self._respond(500, {'error': 'PASSWORD no configurado en variables de entorno.'})
+            return
+
+        try:
+            email_sender   = 'correos.fzdamian99@gmail.com'
+            email_receiver = 'leiazel.412@gmail.com'
+
+            em = EmailMessage()
+            em['From']    = email_sender
+            em['To']      = email_receiver
+            em['Subject'] = subject
+            em.set_content(body)
+
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+                smtp.login(email_sender, password)
+                smtp.send_message(em)
+
+            self._respond(200, {'message': 'Mensaje enviado correctamente.'})
+
+        except smtplib.SMTPAuthenticationError:
+            self._respond(500, {'error': 'Error de autenticación SMTP. Verificá la contraseña de aplicación.'})
+        except Exception as exc:
+            self._respond(500, {'error': f'Error al enviar el mail: {str(exc)}'})
+
+    def _respond(self, status: int, payload: dict):
+        body = json.dumps(payload).encode('utf-8')
+        self.send_response(status)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(body)))
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(body)
