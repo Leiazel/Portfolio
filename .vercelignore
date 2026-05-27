@@ -1,7 +1,6 @@
+.venv-1
 .env
-node_modules
-dist
-.vercel
 __pycache__
 *.pyc
 .vscode
+.git
