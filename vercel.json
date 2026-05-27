@@ -1,13 +1,22 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/contact.py", "use": "@vercel/python" },
-    { "src": "index.html",     "use": "@vercel/static" },
-    { "src": "style.css",      "use": "@vercel/static" },
-    { "src": "app.js",         "use": "@vercel/static" },
-    { "src": "assets/**",      "use": "@vercel/static" }
+    { "src": "api/contact.py",                              "use": "@vercel/python" },
+    { "src": "index.html",                                  "use": "@vercel/static" },
+    { "src": "style.css",                                   "use": "@vercel/static" },
+    { "src": "app.js",                                      "use": "@vercel/static" },
+    { "src": "assets/**",                                   "use": "@vercel/static" },
+    { "src": "CV - Fernandez, Damian Ezequiel 2026.pdf",   "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "^/api/contact$", "methods": ["POST", "OPTIONS"], "dest": "/api/contact.py" }
+    { "src": "^/api/contact$", "methods": ["POST", "OPTIONS"], "dest": "/api/contact.py" },
+    {
+      "src": "^/CV%20-%20Fernandez,%20Damian%20Ezequiel%202026\\.pdf$",
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment; filename=\"CV - Fernandez, Damian Ezequiel 2026.pdf\""
+      },
+      "dest": "/CV - Fernandez, Damian Ezequiel 2026.pdf"
+    }
   ]
 }

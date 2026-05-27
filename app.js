@@ -160,8 +160,8 @@ Actualmente especializándome en backend (Java, Python, REST APIs) y desarrollo 
       printOutput(`<span class="text-green">Iniciando descarga de CV en formato PDF...</span>`);
       // Trigger download
       const link = document.createElement('a');
-      link.href = 'CV - Fernandez, Damian Ezequiel 2026.pdf';
-      link.download = 'CV - Fernandez, Damian Ezequiel.pdf';
+      link.href = 'CV%20-%20Fernandez,%20Damian%20Ezequiel%202026.pdf';
+      link.download = 'CV - Fernandez, Damian Ezequiel 2026.pdf';
       link.click();
     } else if (cleanCmd === 'clear') {
       clearTerminal();
